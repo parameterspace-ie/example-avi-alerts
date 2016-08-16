@@ -29,12 +29,15 @@ urlpatterns = patterns(
         views_api.ViewJobsListDetail.as_view(),
         name='api-view-jobs-detail'),
 
-    url(r'^job_list/',
-        include(plugins_urls, namespace='plugins')),
-
     url(r'^result/(?P<job_id>[0-9]+)/$',
         views.job_result,
         name='job_result'),
 )
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+
+# plugin urls have already run 'format_suffix_patterns'
+# So add them after
+urlpatterns += patterns(
+    url(r'^job_list/', include(plugins_urls, namespace='plugins')), 
+)
