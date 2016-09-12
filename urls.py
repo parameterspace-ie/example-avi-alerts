@@ -2,7 +2,7 @@
 GAVIP Example AVIS: Alerts AVI
 """
 from avi import views, views_api
-from plugins.urls import plugins_urls
+from plugins.urls import job_list_urls
 from django.conf.urls import include, patterns, url
 from rest_framework.urlpatterns import format_suffix_patterns
 
@@ -39,5 +39,5 @@ urlpatterns = format_suffix_patterns(urlpatterns)
 # plugin urls have already run 'format_suffix_patterns'
 # So add them after
 urlpatterns += patterns(
-    url(r'^job_list/', include(plugins_urls, namespace='plugins')), 
+    url(r'^job_list/', include(job_list_urls, namespace='plugins')), 
 )
