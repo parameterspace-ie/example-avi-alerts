@@ -96,8 +96,6 @@ function bind_result_buttons(){
         var row = get_row(this);
         var data_url = "result/" + row.data().job_id;
         window.location = data_url;
-        // $('#result-tab').tab('show');
-        // view_result(data_url);
     })
     $('button[name="exception_view_button"]').parent().click(function(){
         var row = get_row(this);
